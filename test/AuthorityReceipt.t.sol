@@ -1,0 +1,4 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+import {Test} from "forge-std/Test.sol"; import {AuthorityReceipt} from "../src/AuthorityReceipt.sol";
+contract AuthorityReceiptTest is Test { AuthorityReceipt receipt; address controller = address(0xB0B); function setUp() public { receipt = new AuthorityReceipt(controller, keccak256("BOT_CHAIN_LENS")); } function testControllerCanRecordProjectEvidence() public { vm.prank(controller); receipt.recordAction(keccak256("REBALANCE")); } function testNonControllerCannotRecord() public { vm.expectRevert(AuthorityReceipt.NotController.selector); receipt.recordAction(keccak256("REBALANCE")); } function testConstructorRejectsZeroController() public { vm.expectRevert(AuthorityReceipt.ZeroAddress.selector); new AuthorityReceipt(address(0), keccak256("X")); } }
