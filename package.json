@@ -1,0 +1,34 @@
+{
+  "name": "thread-botchain-authority-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.11.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "start": "node server.mjs",
+    "format": "prettier --write index.html package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json vite.config.ts railway.json README.md BOTCHAIN_TESTNET.md server.mjs lib/botchain.mjs test/botchain.test.mjs src/main.tsx src/style.css",
+    "format:check": "prettier --check index.html package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json vite.config.ts railway.json README.md BOTCHAIN_TESTNET.md server.mjs lib/botchain.mjs test/botchain.test.mjs src/main.tsx src/style.css"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ethers": "^6.15.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}
